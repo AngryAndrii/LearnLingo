@@ -3,15 +3,16 @@ import Home from "./pages/Home";
 import Teachers from "./pages/Teachers";
 import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFount";
+import Navigation from "./components/navigation/Navigarion";
 
 const App = () => {
   return (
     <div>
-      <nav>
+      <Navigation>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/teachers">Teachers</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
-      </nav>
+      </Navigation>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/teachers" element={<Teachers />} />
