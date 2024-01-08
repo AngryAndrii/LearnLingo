@@ -1,9 +1,9 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
-import Home from './pages/Home';
-import Teachers from './pages/Teachers';
-import Favorites from './pages/Favorites';
-import NotFound from './pages/NotFount';
-import LayOut from './pages/Layout';
+import LayOut from './pages/layout/Layout';
+import Home from './pages/home/Home';
+import Teachers from './pages/teachers/Teachers';
+import Favorites from './pages/favorites/Favorites';
+import NotFound from './pages/notfound/NotFount';
 
 const App = () => {
   return (
