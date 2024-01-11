@@ -5,7 +5,7 @@ import {
   updateProfile,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "../firebase-config";
+import { auth } from "../config/firebase";
 
 const Auth = () => {
   const [user, setUser] = useState({});
