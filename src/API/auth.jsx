@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
 
@@ -32,6 +33,14 @@ const Auth = () => {
     }
   };
 
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Formik
@@ -53,6 +62,9 @@ const Auth = () => {
         )}
       </Formik>
       <>User loged in: {user?.displayName}</>
+      <button type="button" onClick={logout}>
+        Logout
+      </button>
     </div>
   );
 };
