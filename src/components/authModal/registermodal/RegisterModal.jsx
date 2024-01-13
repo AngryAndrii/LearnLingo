@@ -1,28 +1,24 @@
 import Modal from "react-modal";
 import RegisterModalStyled from "./RegisterModal.styled";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { style } from "../styles";
+import { RxCross2 } from "react-icons/rx";
 
 Modal.setAppElement(document.getElementById("root"));
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "fit-content",
-    height: "fit-content",
-    padding: 0,
-  },
-};
-
 const RegisterModal = ({ isOpen, close, onRequestClose }) => {
   return (
-    <Modal isOpen={isOpen} style={customStyles} onRequestClose={onRequestClose}>
+    <Modal isOpen={isOpen} style={style} onRequestClose={onRequestClose}>
       <RegisterModalStyled>
-        <button onClick={close}></button>
+        <button onClick={close} className="close-button">
+          <RxCross2 style={{ width: "100%", height: "100%" }} />
+        </button>
+        <h3>Registration</h3>
+        <p>
+          Thank you for your interest in our platform! In order to register, we
+          need some information. Please provide us with the following
+          information
+        </p>
         <Formik
           initialValues={{ email: "", password: "", name: "" }}
           onSubmit={(values) => {
@@ -31,12 +27,20 @@ const RegisterModal = ({ isOpen, close, onRequestClose }) => {
         >
           {() => (
             <Form>
-              <label htmlFor="name">Name</label>
-              <Field type="text" name="name" />
-              <label htmlFor="email">email</label>
-              <Field type="email" name="email" />
-              <label htmlFor="password">password</label>
-              <Field type="password" name="password" />
+              <label htmlFor="name">
+                Name
+                <Field type="text" name="name" />
+              </label>
+              <label htmlFor="email">
+                email
+                <Field type="email" name="email" />
+              </label>
+
+              <label htmlFor="password">
+                password
+                <Field type="password" name="password" />
+              </label>
+
               <button type="submit">Submit</button>
             </Form>
           )}
