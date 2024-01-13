@@ -1,9 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBBDsYAXCB7-4CF-jLeKJ_AbxLO83ZOJD4",
+  apiKey: API_KEY,
   authDomain: "learnlingo-72230.firebaseapp.com",
   databaseURL:
     "https://learnlingo-72230-default-rtdb.europe-west1.firebasedatabase.app",

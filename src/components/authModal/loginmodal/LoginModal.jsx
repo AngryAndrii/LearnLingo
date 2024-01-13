@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import RegisterModalStyled from "./RegisterModal.styled";
+import LoginModalStyled from "./LoginModal.styled";
 
 Modal.setAppElement(document.getElementById("root"));
 
@@ -17,15 +17,15 @@ const customStyles = {
   },
 };
 
-const RegisterModal = ({ isOpen, close }) => {
+const LoginModal = ({ isOpen, close, onRequestClose }) => {
   return (
-    <Modal isOpen={isOpen} style={customStyles}>
-      <RegisterModalStyled>
+    <Modal isOpen={isOpen} style={customStyles} onRequestClose={onRequestClose}>
+      <LoginModalStyled>
         <button onClick={close}></button>
-        <h1>Hello</h1>
-      </RegisterModalStyled>
+        <h1>Login</h1>
+      </LoginModalStyled>
     </Modal>
   );
 };
 
-export default RegisterModal;
+export default LoginModal;
