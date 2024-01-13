@@ -1,7 +1,6 @@
 import Modal from "react-modal";
 import RegisterModalStyled from "./RegisterModal.styled";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { register } from "../../../API/auth";
 
 Modal.setAppElement(document.getElementById("root"));
 

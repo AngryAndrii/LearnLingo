@@ -8,38 +8,43 @@ import {
 } from "firebase/auth";
 import { auth } from "../config/firebase";
 
-export const Auth = () => {
-  const [user, setUser] = useState({});
+// export const Auth = () => {
+// const [user, setUser] = useState({});
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+// onAuthStateChanged(auth, (currentUser) => {
+//   setUser(currentUser);
+// });
+let user = null;
 
-  const register = async (values) => {
-    try {
-      const { email, password, name } = values;
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-        name
-      );
-      await updateProfile(auth.currentUser, { displayName: name }).catch(
-        (err) => console.log(err)
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+onAuthStateChanged(auth, (currentUser) => {
+  user = currentUser;
+});
 
-  const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  return <></>;
+export const register = async (values) => {
+  try {
+    const { email, password, name } = values;
+    const user = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password,
+      name
+    );
+    await updateProfile(auth.currentUser, { displayName: name }).catch((err) =>
+      console.log(err)
+    );
+    console.log(user);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
+
+const logout = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// return <></>;
+// };
