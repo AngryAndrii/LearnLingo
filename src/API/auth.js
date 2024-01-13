@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../config/firebase";
 
-const Auth = () => {
+export const Auth = () => {
   const [user, setUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -41,32 +41,5 @@ const Auth = () => {
     }
   };
 
-  return (
-    <div>
-      <Formik
-        initialValues={{ email: "", password: "", name: "" }}
-        onSubmit={(values) => {
-          register(values);
-        }}
-      >
-        {() => (
-          <Form>
-            <label htmlFor="name">Name</label>
-            <Field type="text" name="name" />
-            <label htmlFor="email">email</label>
-            <Field type="email" name="email" />
-            <label htmlFor="password">password</label>
-            <Field type="password" name="password" />
-            <button type="submit">Submit</button>
-          </Form>
-        )}
-      </Formik>
-      <>User loged in: {user?.displayName}</>
-      <button type="button" onClick={logout}>
-        Logout
-      </button>
-    </div>
-  );
+  return <></>;
 };
-
-export default Auth;
