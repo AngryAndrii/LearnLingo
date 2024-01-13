@@ -1,16 +1,18 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBBDsYAXCB7-4CF-jLeKJ_AbxLO83ZOJD4",
-  authDomain: "learnlingo-72230.firebaseapp.com",
+  apiKey: API_KEY,
+  authDomain: 'learnlingo-72230.firebaseapp.com',
   databaseURL:
-    "https://learnlingo-72230-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "learnlingo-72230",
-  storageBucket: "learnlingo-72230.appspot.com",
-  messagingSenderId: "906284379815",
-  appId: "1:906284379815:web:fd7daa72f7080b1c113582",
+    'https://learnlingo-72230-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'learnlingo-72230',
+  storageBucket: 'learnlingo-72230.appspot.com',
+  messagingSenderId: '906284379815',
+  appId: '1:906284379815:web:fd7daa72f7080b1c113582',
 };
 
 // Initialize Firebase
