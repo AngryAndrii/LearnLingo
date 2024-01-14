@@ -13,5 +13,6 @@ export const style = {
     paddingTop: 44,
     paddingBottom: 44,
     borderRadius: 30,
+    maxWidth: 570,
   },
 };
