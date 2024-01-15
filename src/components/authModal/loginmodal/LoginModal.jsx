@@ -12,10 +12,7 @@ Modal.setAppElement(document.getElementById("root"));
 const LoginModal = ({ isOpen, close, onRequestClose }) => {
   const [showPass, setShowPass] = useState(false);
   const handleEyeClick = () => {
-    if (showPass === false) {
-      return setShowPass(true);
-    }
-    return setShowPass(false);
+    showPass ? setShowPass(false) : setShowPass(true);
   };
 
   return (
