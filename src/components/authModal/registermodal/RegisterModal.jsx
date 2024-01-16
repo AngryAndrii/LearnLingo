@@ -6,6 +6,8 @@ import { RxCross2 } from "react-icons/rx";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../../redux/authOperations";
 
 Modal.setAppElement(document.getElementById("root"));
 
@@ -14,6 +16,8 @@ const RegisterModal = ({ isOpen, close, onRequestClose }) => {
   const handleEyeClick = () => {
     showPass ? setShowPass(false) : setShowPass(true);
   };
+
+  const dispatch = useDispatch();
 
   return (
     <Modal isOpen={isOpen} style={style} onRequestClose={onRequestClose}>
@@ -30,7 +34,7 @@ const RegisterModal = ({ isOpen, close, onRequestClose }) => {
         <Formik
           initialValues={{ email: "", password: "", name: "" }}
           onSubmit={(values) => {
-            register(values);
+            dispatch(registerUser(values)).then(() => {});
           }}
         >
           {() => (
