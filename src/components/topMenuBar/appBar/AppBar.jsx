@@ -3,6 +3,7 @@ import Navigation from '../../navigation/Navigation';
 import Logo from '../logo/Logo';
 import StyledAppBar from './AppBar.styled';
 import EnterButtons from '../buttons/EnterButtons';
+import UserIn from '../../userIn/userIn';
 
 const AppBar = () => {
   return (
@@ -14,6 +15,7 @@ const AppBar = () => {
         <NavLink to="/favorites">Favorites</NavLink>
       </Navigation>
       <EnterButtons />
+      <UserIn />
     </StyledAppBar>
   );
 };
