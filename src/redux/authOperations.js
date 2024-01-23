@@ -1,14 +1,14 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,
   signOut,
-} from 'firebase/auth';
-import { auth } from '../config/firebase';
+} from "firebase/auth";
+import { auth } from "../config/firebase";
 
 export const registerUser = createAsyncThunk(
-  'userAuth/registerUser',
+  "userAuth/registerUser",
   async (body, thunkAPI) => {
     try {
       const user = await createUserWithEmailAndPassword(
