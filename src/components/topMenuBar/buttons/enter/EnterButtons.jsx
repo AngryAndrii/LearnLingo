@@ -1,8 +1,8 @@
 import loginIcon from "/images/login-icon.svg";
 import StyledEnterButtons from "./EnterButtons.styled";
 import { useState } from "react";
-import RegisterModal from "../../authModal/registermodal/RegisterModal";
-import LoginModal from "../../authModal/loginmodal/LoginModal";
+import RegisterModal from "../../../authModal/registermodal/RegisterModal";
+import LoginModal from "../../../authModal/loginmodal/LoginModal";
 
 const EnterButtons = () => {
   const [isRegModalOpen, setIsRegModalOpen] = useState(false);

@@ -1,11 +1,16 @@
-import { NavLink } from 'react-router-dom';
-import Navigation from '../../navigation/Navigation';
-import Logo from '../logo/Logo';
-import StyledAppBar from './AppBar.styled';
-import EnterButtons from '../buttons/EnterButtons';
-import UserIn from '../../userIn/userIn';
+import { NavLink } from "react-router-dom";
+import Navigation from "../../navigation/Navigation";
+import Logo from "../logo/Logo";
+import StyledAppBar from "./AppBar.styled";
+import EnterButtons from "../buttons/enter/EnterButtons";
+import UserIn from "../../userIn/UserIn";
+import { useSelector } from "react-redux";
+import { Fragment } from "react";
+import LogoutButton from "../buttons/exit/LogoutButton";
 
 const AppBar = () => {
+  const user = useSelector((state) => state.userAuth.user.name);
+
   return (
     <StyledAppBar>
       <Logo />
@@ -14,8 +19,14 @@ const AppBar = () => {
         <NavLink to="/teachers">Teachers</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
       </Navigation>
-      <EnterButtons />
-      <UserIn />
+      {user ? (
+        <Fragment>
+          <UserIn />
+          <LogoutButton />
+        </Fragment>
+      ) : (
+        <EnterButtons />
+      )}
     </StyledAppBar>
   );
 };
