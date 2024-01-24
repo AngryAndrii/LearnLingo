@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,
   signOut,
@@ -28,20 +29,31 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-// const loginuser = createAsyncThunk(
-//   'userAuth/login',
-//   async (userId, thunkAPI) => {
-//     const response = await userAPI.fetchById(userId);
-//     return response.data;
-//   }
-// );
+const loginUser = createAsyncThunk(
+  "userAuth/loginUser",
+  async (body, thunkAPI) => {
+    try {
+      const response = await signInWithEmailAndPassword(
+        auth,
+        body.email,
+        body.password
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
-// const logOutUser = createAsyncThunk(
-//   'userAuth/logout',
-//   async (userId, thunkAPI) => {
-//     const response = await userAPI.fetchById(userId);
-//     return response.data;
-//   }
-// );
+export const logoutUser = createAsyncThunk(
+  "userAuth/logoutUser",
+  async (userId, thunkAPI) => {
+    try {
+      const response = await signOut(auth);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 // dispatch(fetchUserById(123));
