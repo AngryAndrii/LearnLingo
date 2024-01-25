@@ -29,7 +29,7 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-const loginUser = createAsyncThunk(
+export const loginUser = createAsyncThunk(
   "userAuth/loginUser",
   async (body, thunkAPI) => {
     try {
@@ -38,7 +38,11 @@ const loginUser = createAsyncThunk(
         body.email,
         body.password
       );
-      return response.data;
+      await updateProfile(auth.currentUser, { displayName: body.name });
+
+      const { uid, displayName, email } = auth.currentUser;
+
+      return { uid, displayName, email };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

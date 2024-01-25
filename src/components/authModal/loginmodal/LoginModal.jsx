@@ -6,14 +6,25 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../../Loader";
+import { loginUser } from "../../../redux/authOperations";
 
 Modal.setAppElement(document.getElementById("root"));
 
 const LoginModal = ({ isOpen, close, onRequestClose }) => {
+  const loading = useSelector((state) => state.loading);
+
   const [showPass, setShowPass] = useState(false);
   const handleEyeClick = () => {
     showPass ? setShowPass(false) : setShowPass(true);
   };
+
+  const dispatch = useDispatch();
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <Modal isOpen={isOpen} style={style} onRequestClose={onRequestClose}>
@@ -28,9 +39,9 @@ const LoginModal = ({ isOpen, close, onRequestClose }) => {
         </p>
         <Formik
           initialValues={{ email: "", password: "" }}
-          // onSubmit={(values) => {
-          //   register(values);
-          // }}
+          onSubmit={(values) => {
+            dispatch(loginUser(values)).then(() => {});
+          }}
         >
           {() => (
             <Form>
