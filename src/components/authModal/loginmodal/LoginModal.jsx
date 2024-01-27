@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../Loader";
-import { loginUser } from "../../../redux/authOperations";
+import { loginUser } from "../../../redux/auth/authOperations";
 
 Modal.setAppElement(document.getElementById("root"));
 
