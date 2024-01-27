@@ -1,4 +1,4 @@
-import HomePage from './Home.styled';
+import HomePage from "./Home.styled";
 
 const Home = () => {
   return (

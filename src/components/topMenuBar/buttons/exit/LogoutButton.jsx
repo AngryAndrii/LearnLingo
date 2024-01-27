@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../../Loader";
-import { logoutUser } from "../../../../redux/authOperations";
 import { auth } from "../../../../config/firebase";
+import { logoutUser } from "../../../../redux/auth/authOperations";
 
 const LogoutButton = () => {
   const loading = useSelector((state) => state.loading);

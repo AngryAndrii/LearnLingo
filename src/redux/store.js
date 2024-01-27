@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import authReducer from "./authSlise";
+import authReducer from "./auth/authSlise";
 import storage from "redux-persist/lib/storage";
 import {
   persistStore,
@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import teacherReducer from "./teachers/teacherSlise";
 
 const persistConfig = {
   key: "root",
@@ -19,6 +20,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   userAuth: authReducer,
+  getTeachers: teacherReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
