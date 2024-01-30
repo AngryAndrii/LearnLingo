@@ -9,7 +9,7 @@ export const getTeachers = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const snapshot = await get(child(teachersRef, `teachers/`));
-      if (snapshot.exixt()) {
+      if (snapshot.exists()) {
         return snapshot.val();
       } else {
         console.log("No data available");

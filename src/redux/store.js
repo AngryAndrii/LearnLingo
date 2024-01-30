@@ -16,6 +16,7 @@ import teacherReducer from "./teachers/teacherSlise";
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["getTeachers"],
 };
 
 const rootReducer = combineReducers({
