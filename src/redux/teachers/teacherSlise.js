@@ -18,6 +18,7 @@ export const teacherSlise = createSlice({
       })
       .addCase(getTeachers.fulfilled, (state, action) => {
         state.loading = false;
+        state.teachers = action.payload;
       })
       .addCase(getTeachers.rejected, (state, action) => {
         state.loading = false;
