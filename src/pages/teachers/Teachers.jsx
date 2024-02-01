@@ -19,9 +19,41 @@ const Teachers = () => {
   console.log(teachers);
   return (
     <>
-      {teachers?.map((el) => {
-        return el;
-      })}
+      {teachers?.map(
+        ({
+          id,
+          avatar_url,
+          conditions,
+          experience,
+          languages,
+          lesson_info,
+          lessons_done,
+          levels,
+          name,
+          price_per_hour,
+          rating,
+          reviews,
+          surname,
+        }) => {
+          return (
+            <ul>
+              <li key={id}>
+                <p>{avatar_url}</p>
+                <p>{conditions}</p>
+                <p>{experience}</p>
+                <p>{languages}</p>
+                <p>{lesson_info}</p>
+                <p>{lessons_done}</p>
+                <p>{levels}</p>
+                <p>{name}</p>
+                <p>{price_per_hour}</p>
+                <p>{rating}</p>
+                <p>{surname}</p>
+              </li>
+            </ul>
+          );
+        }
+      )}
     </>
   );
 };
