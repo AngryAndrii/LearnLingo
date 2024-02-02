@@ -1,14 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ref, get, child } from "firebase/database";
+import {
+  ref,
+  get,
+  child,
+  limitToFirst,
+  limitToLast,
+  startAt,
+} from "firebase/database";
 import { database } from "../../config/firebase";
 
-const teachersRef = ref(database);
+const teachersRef = ref(database, `teachers/`);
 
 export const getTeachers = createAsyncThunk(
   "teachers/getTeachers",
   async (_, thunkAPI) => {
     try {
-      const snapshot = await get(child(teachersRef, `teachers/`));
+      const snapshot = await get(teachersRef);
+      console.log(snapshot);
       if (snapshot.exists()) {
         return snapshot.val();
       } else {

@@ -14,6 +14,7 @@ const firebaseConfig = {
   storageBucket: "learnlingo-72230.appspot.com",
   messagingSenderId: "906284379815",
   appId: "1:906284379815:web:fd7daa72f7080b1c113582",
+  limit: 5,
 };
 
 // Initialize Firebase
