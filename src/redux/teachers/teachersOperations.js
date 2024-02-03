@@ -16,7 +16,6 @@ export const getTeachers = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const snapshot = await get(teachersRef);
-      console.log(snapshot);
       if (snapshot.exists()) {
         return snapshot.val();
       } else {
