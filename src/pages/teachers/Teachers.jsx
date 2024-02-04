@@ -32,20 +32,3 @@ const Teachers = () => {
 };
 
 export default Teachers;
-
-// const [teachersList, setTeachersList] = useState([]);
-// {
-//           id,
-//           avatar_url,
-//           conditions,
-//           experience,
-//           languages,
-//           lesson_info,
-//           lessons_done,
-//           levels,
-//           name,
-//           price_per_hour,
-//           rating,
-//           reviews,
-//           surname,
-//         }
