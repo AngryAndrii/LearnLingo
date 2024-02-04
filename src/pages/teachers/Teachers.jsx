@@ -9,6 +9,7 @@ const Teachers = () => {
   const loading = useSelector((state) => state.getTeachers.loading);
   const teachers = useSelector((state) => state.getTeachers.teachers);
   const dispatch = useDispatch();
+  const [counOfCard, setCountOfCard] = useState(4);
 
   useEffect(() => {
     dispatch(getTeachers());
@@ -18,16 +19,25 @@ const Teachers = () => {
     return <Loader />;
   }
 
+  const handleLoadMore = () => {
+    setCountOfCard(counOfCard + 4);
+  };
+
   return (
-    <ul>
-      {teachers?.slice(0, 4).map((el) => {
-        return (
-          <li key={uid()}>
-            <TeachersCard data={el} />
-          </li>
-        );
-      })}
-    </ul>
+    <div>
+      <ul>
+        {teachers?.slice(0, counOfCard).map((el) => {
+          return (
+            <li key={uid()}>
+              <TeachersCard data={el} />
+            </li>
+          );
+        })}
+      </ul>
+      <button type="button" onClick={handleLoadMore}>
+        Load more
+      </button>
+    </div>
   );
 };
 

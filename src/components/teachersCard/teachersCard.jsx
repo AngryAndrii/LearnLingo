@@ -67,8 +67,16 @@ const TeachersCard = ({ data }) => {
               </React.Fragment>
             );
           })}
+          <button type="button">Book trial lesson</button>
         </div>
       )}
+      <ul>
+        <li>
+          {levels.map((el) => {
+            return el;
+          })}
+        </li>
+      </ul>
     </>
   );
 };
