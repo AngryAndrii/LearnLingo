@@ -20,7 +20,7 @@ const Teachers = () => {
   }
 
   const handleLoadMore = () => {
-    setCountOfCard(counOfCard + 4);
+    setCountOfCard((prevCount) => prevCount + 4);
   };
 
   return (
