@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
 };
 
-export const teacherSlise = createSlice({
+export const teacherSlice = createSlice({
   name: "getTeachers",
   initialState,
   reducers: {},
@@ -27,5 +27,5 @@ export const teacherSlise = createSlice({
   },
 });
 
-const { reducer: teacherReducer } = teacherSlise;
+const { reducer: teacherReducer } = teacherSlice;
 export default teacherReducer;

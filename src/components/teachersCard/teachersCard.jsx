@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { uid } from "uid";
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
 
-  console.log(data);
+  const dispatch = useDispatch();
 
   const {
     avatar_url,
@@ -23,6 +24,9 @@ const TeachersCard = ({ data }) => {
 
   return (
     <>
+      <button type="button" style={{ background: "red" }}>
+        lol
+      </button>
       <img src={avatar_url} width={96} alt="" />
       <div>
         <p>languages</p>
