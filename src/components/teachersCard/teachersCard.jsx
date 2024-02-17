@@ -4,7 +4,6 @@ import { uid } from "uid";
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
-
   const dispatch = useDispatch();
 
   const {
@@ -22,9 +21,15 @@ const TeachersCard = ({ data }) => {
     surname,
   } = data;
 
+  const handleFavButtonClick = () => {};
+
   return (
     <>
-      <button type="button" style={{ background: "red" }}>
+      <button
+        type="button"
+        style={{ background: "red" }}
+        onClick={handleFavButtonClick}
+      >
         lol
       </button>
       <img src={avatar_url} width={96} alt="" />
