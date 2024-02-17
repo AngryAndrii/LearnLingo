@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { uid } from "uid";
+import heart from "/images/heart.svg";
+import StyledCard from "./teachersCard.styled";
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
@@ -24,15 +26,17 @@ const TeachersCard = ({ data }) => {
   const handleFavButtonClick = () => {};
 
   return (
-    <>
+    <StyledCard>
       <button
+        className="heart-button"
         type="button"
-        style={{ background: "red" }}
         onClick={handleFavButtonClick}
       >
-        lol
+        <img src={heart} alt="" width={26} height={26} />
       </button>
-      <img src={avatar_url} width={96} alt="" />
+      <div className="avatar-container">
+        <img className="avatar" src={avatar_url} width={96} alt="" />
+      </div>
       <div>
         <p>languages</p>
         <p>
@@ -86,7 +90,7 @@ const TeachersCard = ({ data }) => {
           })}
         </li>
       </ul>
-    </>
+    </StyledCard>
   );
 };
 
