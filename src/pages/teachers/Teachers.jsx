@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../Loader";
 import { getTeachers } from "../../redux/teachers/teachersOperations";
-import { useEffect, useState } from "react";
+import { createRef, useEffect, useLayoutEffect, useState } from "react";
 import { uid } from "uid";
 import TeachersCard from "../../components/teachersCard/teachersCard";
 
@@ -9,11 +9,11 @@ const Teachers = () => {
   const loading = useSelector((state) => state.getTeachers.loading);
   const teachers = useSelector((state) => state.getTeachers.teachers);
   const dispatch = useDispatch();
-  const [counOfCard, setCountOfCard] = useState(4);
+  const [countOfCard, setCountOfCard] = useState(4);
 
-  useEffect(() => {
-    dispatch(getTeachers());
-  }, []);
+  useLayoutEffect(() => {
+    dispatch(getTeachers(countOfCard));
+  }, [countOfCard]);
 
   if (loading) {
     return <Loader />;
@@ -26,7 +26,14 @@ const Teachers = () => {
   return (
     <div>
       <ul>
-        {teachers?.slice(0, counOfCard).map((el) => {
+        {/* {teachers?.slice(0, counOfCard).map((el) => {
+          return (
+            <li key={uid()}>
+              <TeachersCard data={el} />
+            </li>
+          );
+        })} */}
+        {teachers?.map((el) => {
           return (
             <li key={uid()}>
               <TeachersCard data={el} />

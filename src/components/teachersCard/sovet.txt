@@ -1,0 +1,36 @@
+на сторінці Teachers через useState встановлюю необхідну кількість вчителів
+const [teachersCardsAmount, setTeachersCardsAmount] = useState(4);
+
+і через useEffect їх отримую
+
+useEffect(() => {
+const fetchTeachers = async () => {
+try {
+const teachersRef = ref(db, '/');
+let dataQuery = query(
+teachersRef,
+orderByKey(),
+limitToFirst(teachersCardsAmount)
+);
+setIsLoadingMore(true);
+const snapshot = await get(dataQuery);
+
+if (snapshot.exists()) {
+const newTeachers = snapshot.val();
+dispatch(addTeachers(newTeachers));
+setHasMoreTeachers(true);
+
+if (Object.keys(newTeachers).length < teachersCardsAmount) {
+setHasMoreTeachers(false);
+}
+} else {
+setHasMoreTeachers(false);
+}
+} catch (error) {
+console.error('Loading error', error.message);
+} finally {
+setIsLoadingMore(false);
+}
+};
+
+limitToFirst(teachersCardsAmount) нам дозволяє контролювати кількість вчителів
