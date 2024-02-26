@@ -7,10 +7,6 @@ const LayOut = () => {
     <StyledLayout>
       <AppBar />
       <Outlet />
-      {/* <>User loged in: {user?.displayName}</>
-      <button type="button" onClick={logout}>
-        Logout
-      </button> */}
     </StyledLayout>
   );
 };

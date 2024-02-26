@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { uid } from "uid";
+import heart from "/images/heart.svg";
+import StyledCard from "./teachersCard.styled";
+import book from "/images/book-open.svg";
+import star from "/images/star.svg";
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
@@ -24,36 +28,49 @@ const TeachersCard = ({ data }) => {
   const handleFavButtonClick = () => {};
 
   return (
-    <>
+    <StyledCard>
       <button
+        className="heart-button"
         type="button"
-        style={{ background: "red" }}
         onClick={handleFavButtonClick}
       >
-        lol
+        <img src={heart} alt="" width={26} height={26} />
       </button>
-      <img src={avatar_url} width={96} alt="" />
+      <div className="avatar-container">
+        <img className="avatar" src={avatar_url} width={96} alt="" />
+      </div>
       <div>
-        <p>languages</p>
+        <p className="grey-span">languages</p>
         <p>
           {name} {surname}
         </p>
       </div>
       <ul>
-        <li>Lessons online</li>
-        <li>Lessons done {lessons_done}</li>
-        <li>Rating: {rating}</li>
-        <li>Price / 1 hour: {price_per_hour}</li>
+        <li>
+          <img src={book} alt="book icon" /> Lessons online
+        </li>
+        <li>Lessons done: {lessons_done}</li>
+        <li>
+          <img src={star} alt="rating icon" /> Rating: {rating}
+        </li>
+        <li>
+          Price / 1 hour: <span className="price-span">${price_per_hour}</span>
+        </li>
       </ul>
       <ul>
         <li>
-          Speaks:
+          <span className="grey-span">Speaks:</span>
           {languages.map((el) => {
             return ` ${el}, `;
           })}
         </li>
-        <li>Lesson Info: {lesson_info}</li>
-        <li> Conditions: {conditions}</li>
+        <li>
+          <span className="grey-span">Lesson Info:</span> {lesson_info}
+        </li>
+        <li>
+          {" "}
+          <span className="grey-span">Conditions:</span> {conditions}
+        </li>
       </ul>
       {!loadMore ? (
         <button
@@ -86,7 +103,7 @@ const TeachersCard = ({ data }) => {
           })}
         </li>
       </ul>
-    </>
+    </StyledCard>
   );
 };
 
