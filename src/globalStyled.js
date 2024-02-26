@@ -46,7 +46,10 @@ export const GlobalStyle = createGlobalStyle`
         background-color: var(--secondary-hover-color);
       }
     }
-
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
   }
 
