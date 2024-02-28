@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { uid } from "uid";
-import heart from "/images/heart.svg";
-import StyledCard from "./teachersCard.styled";
-import book from "/images/book-open.svg";
-import star from "/images/star.svg";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { uid } from 'uid';
+import heart from '/images/heart.svg';
+import StyledCard from './teachersCard.styled';
+import book from '/images/book-open.svg';
+import star from '/images/star.svg';
+import Button from '../button/Button';
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
@@ -45,7 +46,7 @@ const TeachersCard = ({ data }) => {
           {name} {surname}
         </p>
       </div>
-      <ul>
+      <ul className="description">
         <li>
           <img src={book} alt="book icon" /> Lessons online
         </li>
@@ -54,13 +55,14 @@ const TeachersCard = ({ data }) => {
           <img src={star} alt="rating icon" /> Rating: {rating}
         </li>
         <li>
-          Price / 1 hour: <span className="price-span">${price_per_hour}</span>
+          Price / 1 hour:
+          <span className="price-span">${price_per_hour}</span>
         </li>
       </ul>
       <ul>
         <li>
           <span className="grey-span">Speaks:</span>
-          {languages.map((el) => {
+          {languages.map(el => {
             return ` ${el}, `;
           })}
         </li>
@@ -68,7 +70,6 @@ const TeachersCard = ({ data }) => {
           <span className="grey-span">Lesson Info:</span> {lesson_info}
         </li>
         <li>
-          {" "}
           <span className="grey-span">Conditions:</span> {conditions}
         </li>
       </ul>
@@ -93,12 +94,12 @@ const TeachersCard = ({ data }) => {
               </React.Fragment>
             );
           })}
-          <button type="button">Book trial lesson</button>
+          <Button>Book trial lesson</Button>
         </div>
       )}
       <ul>
         <li>
-          {levels.map((el) => {
+          {levels.map(el => {
             return el;
           })}
         </li>
