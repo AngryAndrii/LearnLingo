@@ -13,6 +13,10 @@ const StyledCard = styled.div`
     top: 60px;
     right: 0px;
   }
+
+  .exp {
+    font-weight: 400;
+  }
   .avatar-container {
     display: flex;
     flex-direction: column;
