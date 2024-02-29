@@ -6,6 +6,7 @@ import StyledCard from './teachersCard.styled';
 import book from '/images/book-open.svg';
 import star from '/images/star.svg';
 import Button from '../button/Button';
+import Avatar from '../Avatar';
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
@@ -84,10 +85,11 @@ const TeachersCard = ({ data }) => {
         </button>
       ) : (
         <div>
-          {experience}
+          <p className="exp">{experience}</p>
           {reviews.map(({ reviewer_name, reviewer_rating, comment }) => {
             return (
               <React.Fragment key={uid()}>
+                <Avatar />
                 {reviewer_name}
                 {reviewer_rating}
                 {comment}
