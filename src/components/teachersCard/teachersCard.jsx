@@ -68,7 +68,6 @@ const TeachersCard = ({ data }) => {
           <span className="grey-span">Lesson Info:</span> {lesson_info}
         </li>
         <li>
-          {" "}
           <span className="grey-span">Conditions:</span> {conditions}
         </li>
       </ul>
