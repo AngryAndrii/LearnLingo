@@ -36,6 +36,10 @@ const StyledCard = styled.div`
   .grey-span {
     color: #8a8a89;
   }
+  .comment {
+    display: flex;
+    flex-direction: column;
+  }
 
   @media screen and (min-width: 800px) {
     .description {
