@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledCard = styled.div`
   position: relative;
+  margin-bottom: 32px;
+
   .heart-button {
     position: absolute;
     right: 10px;
@@ -36,11 +38,28 @@ const StyledCard = styled.div`
   .grey-span {
     color: #8a8a89;
   }
-  .comment {
-    display: flex;
-    flex-direction: column;
+  .loaded-block:nth-child() {
+    margin-bottom: 23px;
   }
-
+  .category-list {
+    flex-wrap: wrap;
+    column-gap: 8px;
+    row-gap: 8px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .category-list li {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 35px;
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .category-list li:first-child {
+    background-color: var(--secondary-color);
+    border: none;
+  }
   @media screen and (min-width: 800px) {
     .description {
       top: 16px;
@@ -49,7 +68,7 @@ const StyledCard = styled.div`
       flex-direction: row;
     }
     .description li:not(:last-child)::after {
-      content: ' |';
+      content: " |";
       color: rgba(18, 20, 23, 0.2);
     }
   }
