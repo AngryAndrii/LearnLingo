@@ -51,7 +51,15 @@ export const GlobalStyle = createGlobalStyle`
       list-style-type: none;
       padding: 0;
     }
-
+    .flex {
+      display: flex;
+    }
+    .row {
+    flex-direction: row;
+    }
+    .column {
+     flex-direction: column;
+    }
   }
 
 

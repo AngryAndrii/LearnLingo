@@ -6,7 +6,6 @@ import StyledCard from './teachersCard.styled';
 import book from '/images/book-open.svg';
 import star from '/images/star.svg';
 import Button from '../button/Button';
-import Avatar from '../Avatar';
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
@@ -26,6 +25,8 @@ const TeachersCard = ({ data }) => {
     reviews,
     surname,
   } = data;
+
+  // 'https://xsgames.co/randomusers/avatar.php?g=female';
 
   const handleFavButtonClick = () => {};
 
@@ -88,10 +89,25 @@ const TeachersCard = ({ data }) => {
           <p className="exp">{experience}</p>
           {reviews.map(({ reviewer_name, reviewer_rating, comment }) => {
             return (
-              <React.Fragment key={uid()}>
-                <Avatar />
-                {reviewer_name}
-                {reviewer_rating}
+              <React.Fragment className="comment" key={uid()}>
+                <div className="flex row">
+                  <img
+                    style={{ width: '44px', borderRadius: '50%' }}
+                    src="https://xsgames.co/randomusers/avatar.php?g=female"
+                    alt="user avatar"
+                  />
+                  <div className="flex column" style={{ flexWrap: 'wrap' }}>
+                    {reviewer_name}
+                    <div>
+                      <img
+                        src={star}
+                        alt="rating icon"
+                        style={{ marginRight: '5px' }}
+                      />
+                      {reviewer_rating}
+                    </div>
+                  </div>
+                </div>
                 {comment}
               </React.Fragment>
             );
