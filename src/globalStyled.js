@@ -1,12 +1,13 @@
-import { createGlobalStyle } from "styled-components";
-import "modern-normalize";
-import "./styles/root.css";
+import { createGlobalStyle } from 'styled-components';
+import 'modern-normalize';
+import './styles/root.css';
 
 export const GlobalStyle = createGlobalStyle`
   body {
     font-family: var(--font);
     color: var(--primary-text-color);
     font-weight: 500;
+    font-size: 16px;
     button {
       border: none
     }
@@ -50,7 +51,15 @@ export const GlobalStyle = createGlobalStyle`
       list-style-type: none;
       padding: 0;
     }
-
+    .flex {
+      display: flex;
+    }
+    .row {
+    flex-direction: row;
+    }
+    .column {
+     flex-direction: column;
+    }
   }
 
 
