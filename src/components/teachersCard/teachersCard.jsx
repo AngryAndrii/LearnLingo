@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { uid } from 'uid';
-import heart from '/images/heart.svg';
-import StyledCard from './teachersCard.styled';
-import book from '/images/book-open.svg';
-import star from '/images/star.svg';
-import Button from '../button/Button';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { uid } from "uid";
+import heart from "/images/heart.svg";
+import StyledCard from "./teachersCard.styled";
+import book from "/images/book-open.svg";
+import star from "/images/star.svg";
+import avatarGenerator from "./avatar";
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
@@ -64,7 +64,7 @@ const TeachersCard = ({ data }) => {
       <ul>
         <li>
           <span className="grey-span">Speaks:</span>
-          {languages.map(el => {
+          {languages.map((el) => {
             return ` ${el}, `;
           })}
         </li>
@@ -77,6 +77,12 @@ const TeachersCard = ({ data }) => {
       </ul>
       {!loadMore ? (
         <button
+          style={{
+            textDecoration: "underline",
+            background: "rgba(0, 0, 0, 0)",
+            fontWeight: "500",
+            marginTop: "16px",
+          }}
           type="button"
           onClick={() => {
             setLoadMore(true);
@@ -85,43 +91,50 @@ const TeachersCard = ({ data }) => {
           Read more
         </button>
       ) : (
-        <div>
+        <div className="loaded-block">
           <p className="exp">{experience}</p>
           {reviews.map(({ reviewer_name, reviewer_rating, comment }) => {
             return (
-              <React.Fragment className="comment" key={uid()}>
-                <div className="flex row">
+              <div style={{ marginBottom: "10px" }} key={uid()}>
+                <div
+                  className="flex row"
+                  style={{
+                    marginBottom: "16px",
+                    columnGap: "10px",
+                    alignItems: "center",
+                  }}
+                >
                   <img
-                    style={{ width: '44px', borderRadius: '50%' }}
-                    src="https://xsgames.co/randomusers/avatar.php?g=female"
+                    style={{ width: "44px", borderRadius: "50%" }}
+                    src={avatarGenerator()}
                     alt="user avatar"
                   />
-                  <div className="flex column" style={{ flexWrap: 'wrap' }}>
+                  <div className="flex column" style={{ flexWrap: "wrap" }}>
                     {reviewer_name}
                     <div>
                       <img
                         src={star}
                         alt="rating icon"
-                        style={{ marginRight: '5px' }}
+                        style={{ marginRight: "5px" }}
                       />
-                      {reviewer_rating}
+                      {reviewer_rating},0
                     </div>
                   </div>
                 </div>
                 {comment}
-              </React.Fragment>
+              </div>
             );
           })}
-          <Button>Book trial lesson</Button>
         </div>
       )}
-      <ul>
-        <li>
-          {levels.map(el => {
-            return el;
-          })}
-        </li>
+      <ul className="category-list flex row">
+        {levels.map((el) => {
+          return <li key={uid()}>{el}</li>;
+        })}
       </ul>
+      <button type="button" className="bookBotton">
+        Book trial lesson
+      </button>
     </StyledCard>
   );
 };

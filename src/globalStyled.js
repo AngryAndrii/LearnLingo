@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import 'modern-normalize';
-import './styles/root.css';
+import { createGlobalStyle } from "styled-components";
+import "modern-normalize";
+import "./styles/root.css";
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--primary-text-color);
     font-weight: 500;
     font-size: 16px;
+    background-color: #EEEEEE;
     button {
       border: none
     }
