@@ -5,7 +5,6 @@ import heart from "/images/heart.svg";
 import StyledCard from "./teachersCard.styled";
 import book from "/images/book-open.svg";
 import star from "/images/star.svg";
-import Button from "../button/Button";
 import avatarGenerator from "./avatar";
 
 const TeachersCard = ({ data }) => {
@@ -78,6 +77,12 @@ const TeachersCard = ({ data }) => {
       </ul>
       {!loadMore ? (
         <button
+          style={{
+            textDecoration: "underline",
+            background: "rgba(0, 0, 0, 0)",
+            fontWeight: "500",
+            marginTop: "16px",
+          }}
           type="button"
           onClick={() => {
             setLoadMore(true);
@@ -91,7 +96,14 @@ const TeachersCard = ({ data }) => {
           {reviews.map(({ reviewer_name, reviewer_rating, comment }) => {
             return (
               <div style={{ marginBottom: "10px" }} key={uid()}>
-                <div className="flex row" style={{ marginBottom: "16px" }}>
+                <div
+                  className="flex row"
+                  style={{
+                    marginBottom: "16px",
+                    columnGap: "10px",
+                    alignItems: "center",
+                  }}
+                >
                   <img
                     style={{ width: "44px", borderRadius: "50%" }}
                     src={avatarGenerator()}
@@ -105,7 +117,7 @@ const TeachersCard = ({ data }) => {
                         alt="rating icon"
                         style={{ marginRight: "5px" }}
                       />
-                      {reviewer_rating}
+                      {reviewer_rating},0
                     </div>
                   </div>
                 </div>
@@ -117,10 +129,12 @@ const TeachersCard = ({ data }) => {
       )}
       <ul className="category-list flex row">
         {levels.map((el) => {
-          return <li>{el}</li>;
+          return <li key={uid()}>{el}</li>;
         })}
       </ul>
-      <Button>Book trial lesson</Button>
+      <button type="button" className="bookBotton">
+        Book trial lesson
+      </button>
     </StyledCard>
   );
 };

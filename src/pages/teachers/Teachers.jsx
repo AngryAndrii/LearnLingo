@@ -4,6 +4,7 @@ import { getTeachers } from "../../redux/teachers/teachersOperations";
 import { createRef, useEffect, useLayoutEffect, useState } from "react";
 import { uid } from "uid";
 import TeachersCard from "../../components/teachersCard/teachersCard";
+import StyledTeachers from "./teachers.styled";
 
 const Teachers = () => {
   const baseCountOfCards = 8;
@@ -25,7 +26,7 @@ const Teachers = () => {
   };
 
   return (
-    <div>
+    <StyledTeachers>
       <ul>
         {teachers?.map((el) => {
           return (
@@ -35,10 +36,10 @@ const Teachers = () => {
           );
         })}
       </ul>
-      <button type="button" onClick={handleLoadMore}>
+      <button type="button" className="loadMoreButton" onClick={handleLoadMore}>
         Load more
       </button>
-    </div>
+    </StyledTeachers>
   );
 };
 
