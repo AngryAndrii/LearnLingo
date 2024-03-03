@@ -29,6 +29,9 @@ const StyledEnterButtons = styled.div`
     border-radius: 12px;
     border: none;
   }
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+  }
 `;
 
 export default StyledEnterButtons;

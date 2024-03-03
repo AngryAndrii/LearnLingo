@@ -1,4 +1,4 @@
-import StyledNav from './Navigation.styled';
+import StyledNav from "./Navigation.styled";
 
 const Navigation = ({ children }) => {
   return <StyledNav>{children}</StyledNav>;

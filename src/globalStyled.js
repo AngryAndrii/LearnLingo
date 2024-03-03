@@ -8,7 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--primary-text-color);
     font-weight: 500;
     font-size: 16px;
-    background-color: #EEEEEE;
+    outline: 1px solid tomato;
+    background-color: grey;
     button {
       border: none
     }
