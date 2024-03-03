@@ -26,7 +26,7 @@ const EnterButtons = () => {
         <button
           className="login-button"
           id="log"
-          onClick={() => {
+          onClick={(event) => {
             handleOpen(event.target.id);
           }}
         >

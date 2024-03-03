@@ -1,12 +1,20 @@
 import { NavLink } from "react-router-dom";
 import Navigation from "../../navigation/Navigation";
 import Logo from "../logo/Logo";
-import StyledAppBar from "./AppBar.styled";
+import { StyledAppBar } from "./AppBar.styled";
 import EnterButtons from "../buttons/enter/EnterButtons";
 import UserIn from "../../userIn/UserIn";
 import { useSelector } from "react-redux";
-import { Fragment } from "react";
 import LogoutButton from "../buttons/exit/LogoutButton";
+import styled from "styled-components";
+
+const StyledLink = styled(NavLink)`
+  color: inherit;
+
+  &.active {
+    color: var(--secondary-color);
+  }
+`;
 
 const AppBar = () => {
   const user = useSelector((state) => state.userAuth.user.name);
@@ -15,15 +23,15 @@ const AppBar = () => {
     <StyledAppBar>
       <Logo />
       <Navigation>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/teachers">Teachers</NavLink>
-        <NavLink to="/favorites">Favorites</NavLink>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/teachers">Teachers</StyledLink>
+        <StyledLink to="/favorites">Favorites</StyledLink>
       </Navigation>
       {user ? (
-        <Fragment>
+        <div className="userInDiv">
           <UserIn />
           <LogoutButton />
-        </Fragment>
+        </div>
       ) : (
         <EnterButtons />
       )}

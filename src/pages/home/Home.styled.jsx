@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const HomePage = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
+  padding: 20px;
+  background-color: #fff;
   img {
     max-width: 100%;
   }

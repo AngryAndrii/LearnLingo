@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const StyledTeachers = styled.div`
   padding-bottom: 20px;
+  background-color: #eeeeee;
+  padding: 20px;
   .loadMoreButton {
     padding: 16px 48px;
     background-color: var(--secondary-color);
