@@ -5,7 +5,7 @@ const StyledCard = styled.div`
   margin-bottom: 32px;
   background-color: #ffffff;
   border-radius: 24px;
-  padding: 24px;
+  padding: 5px;
   .heart-button {
     position: absolute;
     right: 24px;
@@ -15,7 +15,7 @@ const StyledCard = styled.div`
   .description {
     position: absolute;
     top: 60px;
-    right: 24px;
+    right: 10px;
   }
 
   .exp {
@@ -71,6 +71,7 @@ const StyledCard = styled.div`
     }
   }
   @media screen and (min-width: 800px) {
+    padding: 24px;
     .description {
       top: 30px;
       right: 90px;

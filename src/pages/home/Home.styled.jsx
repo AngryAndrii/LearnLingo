@@ -4,8 +4,8 @@ const HomePage = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
+  padding: 20px;
   background-color: #fff;
-  outline: 1px solid red;
   img {
     max-width: 100%;
   }

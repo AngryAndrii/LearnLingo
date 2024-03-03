@@ -31,6 +31,7 @@ const StyledEnterButtons = styled.div`
   }
   @media screen and (min-width: 800px) {
     flex-direction: row;
+    margin-top: 0;
   }
 `;
 
