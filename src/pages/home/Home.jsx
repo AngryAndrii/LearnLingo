@@ -3,15 +3,17 @@ import HomePage from "./Home.styled";
 const Home = () => {
   return (
     <HomePage>
-      <header className="header">
+      <section className="header">
         <h1>Unlock your potential with the best language tutors</h1>
         <p>
           Embark on an Exciting Language Journey with Expert Language Tutors:
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <button>Get started</button>
-      </header>
+        <button className="start-button" type="button">
+          Get started
+        </button>
+      </section>
       <section className="header-img">
         <img src="images/block.jpg" alt="main-image" />
       </section>
