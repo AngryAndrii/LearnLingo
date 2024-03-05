@@ -1,15 +1,15 @@
-import loginIcon from "/images/login-icon.svg";
-import StyledEnterButtons from "./EnterButtons.styled";
-import { useState } from "react";
-import RegisterModal from "../../../authModal/registermodal/RegisterModal";
-import LoginModal from "../../../authModal/loginmodal/LoginModal";
+import loginIcon from '/images/login-icon.svg';
+import StyledEnterButtons from './EnterButtons.styled';
+import { useState } from 'react';
+import RegisterModal from '../../../authModal/registermodal/RegisterModal';
+import LoginModal from '../../../authModal/loginmodal/LoginModal';
 
 const EnterButtons = () => {
   const [isRegModalOpen, setIsRegModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   function handleOpen(el) {
-    if (el == "reg") {
+    if (el == 'reg') {
       return setIsRegModalOpen(true);
     }
     return setIsLoginModalOpen(true);
@@ -26,7 +26,7 @@ const EnterButtons = () => {
         <button
           className="login-button"
           id="log"
-          onClick={(event) => {
+          onClick={event => {
             handleOpen(event.target.id);
           }}
         >
