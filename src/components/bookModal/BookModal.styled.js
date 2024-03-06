@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledForm = styled.div`
   outline: 1px solid tomato;
@@ -30,6 +30,10 @@ const StyledForm = styled.div`
     font-size: 24px;
     margin-top: 40px;
     margin-bottom: 20px;
+  }
+  .group {
+  }
+  .text-inputs {
   }
 `;
 
