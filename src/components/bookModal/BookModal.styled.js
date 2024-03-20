@@ -32,8 +32,31 @@ const StyledForm = styled.div`
     margin-bottom: 20px;
   }
   .group {
+    margin-bottom: 40px;
   }
   .text-inputs {
+    row-gap: 8px;
+    margin-bottom: 40px;
+  }
+  .input-field {
+    position: relative;
+  }
+  .input-field label {
+    position: absolute;
+    font-weight: 400;
+    font-size: 16px;
+    top: 16px;
+    left: 18px;
+  }
+  .input-field input {
+    width: 100%;
+    height: 54px;
+    padding: 16px 18px;
+    border-radius: 15px;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+  }
+  .input-field input:focus + label {
+    display: none !important;
   }
 `;
 

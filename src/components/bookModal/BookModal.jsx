@@ -49,55 +49,72 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
             value={formik.values.name}
           >
             <label>
-              <input type="radio" name="picked" value="Career and business" />
+              <input
+                type="radio"
+                name="kindOfLesson"
+                value="Career and business"
+              />
               Career and business
             </label>
             <label>
-              <input type="radio" name="picked" value="Lesson for kids" />
+              <input type="radio" name="kindOfLesson" value="Lesson for kids" />
               Lesson for kids
             </label>
             <label>
-              <input type="radio" name="picked" value="Living abroad" />
+              <input type="radio" name="kindOfLesson" value="Living abroad" />
               Living abroad
             </label>
             <label>
-              <input type="radio" name="picked" value=" Exams and coursework" />
+              <input
+                type="radio"
+                name="kindOfLesson"
+                value=" Exams and coursework"
+              />
               Exams and coursework
             </label>
             <label>
               <input
                 type="radio"
-                name="picked"
+                name="kindOfLesson"
                 value="ulture, travel or hobby"
               />
               Culture, travel or hobby
             </label>
           </div>
+
           <div className="text-inputs flex column">
-            <label htmlFor="name">First Name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.name}
-            />
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
-            <label htmlFor="phone">phone</label>
-            <input
-              id="phone"
-              name="phone"
-              type="phone"
-              onChange={formik.handleChange}
-              value={formik.values.phone}
-            />
+            <div className="input-field">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.name}
+              />
+              <label htmlFor="name">First Name</label>
+            </div>
+
+            <div className="input-field">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+              />
+              <label htmlFor="email">Email Address</label>
+            </div>
+
+            <div className="input-field">
+              <input
+                id="phone"
+                name="phone"
+                type="phone"
+                onChange={formik.handleChange}
+                value={formik.values.phone}
+              />
+              <label htmlFor="phone">phone</label>
+            </div>
           </div>
 
           <button type="submit">Submit</button>
