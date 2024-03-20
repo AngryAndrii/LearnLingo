@@ -1,18 +1,18 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import { style } from '../authModal/styles';
-import Modal from 'react-modal';
-import StyledForm from './BookModal.styled';
+import React from "react";
+import { useFormik } from "formik";
+import { style } from "../authModal/styles";
+import Modal from "react-modal";
+import StyledForm from "./BookModal.styled";
 
 const BookForm = ({ close, isOpen, name, surname, img }) => {
   const formik = useFormik({
     initialValues: {
-      kindOfLesson: '',
-      name: '',
-      email: '',
-      phone: '',
+      kindOfLesson: "",
+      name: "",
+      email: "",
+      phone: "",
     },
-    onSubmit: values => {
+    onSubmit: (values) => {
       console.log(values);
     },
   });
@@ -28,7 +28,7 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
           <img
             src={img}
             alt=""
-            style={{ width: '44px', height: '44px', borderRadius: '100px' }}
+            style={{ width: "44px", height: "44px", borderRadius: "100px" }}
           />
           <div>
             <p className="teacher-descr">Your teacher</p>
@@ -42,61 +42,81 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
             What is your main reason for learning English?
           </div>
           <div
-            className="group"
+            className="group flex column"
             role="group"
             aria-labelledby="my-radio-group"
             onChange={formik.handleChange}
             value={formik.values.name}
           >
             <label>
-              <input type="radio" name="picked" value="Career and business" />
+              <input
+                type="radio"
+                name="kindOfLesson"
+                value="Career and business"
+              />
               Career and business
             </label>
             <label>
-              <input type="radio" name="picked" value="Lesson for kids" />
+              <input type="radio" name="kindOfLesson" value="Lesson for kids" />
               Lesson for kids
             </label>
             <label>
-              <input type="radio" name="picked" value="Living abroad" />
+              <input type="radio" name="kindOfLesson" value="Living abroad" />
               Living abroad
             </label>
             <label>
-              <input type="radio" name="picked" value=" Exams and coursework" />
+              <input
+                type="radio"
+                name="kindOfLesson"
+                value=" Exams and coursework"
+              />
               Exams and coursework
             </label>
             <label>
               <input
                 type="radio"
-                name="picked"
+                name="kindOfLesson"
                 value="ulture, travel or hobby"
               />
               Culture, travel or hobby
             </label>
           </div>
-          <label htmlFor="name">First Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.name}
-          />
-          <label htmlFor="email">Email Address</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            onChange={formik.handleChange}
-            value={formik.values.email}
-          />
-          <label htmlFor="phone">phone</label>
-          <input
-            id="phone"
-            name="phone"
-            type="phone"
-            onChange={formik.handleChange}
-            value={formik.values.phone}
-          />
+
+          <div className="text-inputs flex column">
+            <div className="input-field">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.name}
+              />
+              <label htmlFor="name">First Name</label>
+            </div>
+
+            <div className="input-field">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+              />
+              <label htmlFor="email">Email Address</label>
+            </div>
+
+            <div className="input-field">
+              <input
+                id="phone"
+                name="phone"
+                type="phone"
+                onChange={formik.handleChange}
+                value={formik.values.phone}
+              />
+              <label htmlFor="phone">phone</label>
+            </div>
+          </div>
+
           <button type="submit">Submit</button>
         </form>
       </StyledForm>
