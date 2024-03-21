@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { style } from "../authModal/styles";
 import Modal from "react-modal";
 import StyledForm from "./BookModal.styled";
+import { RxCross2 } from "react-icons/rx";
 
 const BookForm = ({ close, isOpen, name, surname, img }) => {
   const formik = useFormik({
@@ -19,6 +20,9 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
   return (
     <Modal style={style} onRequestClose={close} isOpen={isOpen}>
       <StyledForm>
+        <button onClick={close} className="close-button">
+          <RxCross2 style={{ width: "100%", height: "100%" }} />
+        </button>
         <h3>Book trial lesson</h3>
         <p className="descr">
           Our experienced tutor will assess your current language level, discuss
@@ -50,34 +54,52 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
           >
             <label>
               <input
+                className="radio-input"
                 type="radio"
                 name="kindOfLesson"
                 value="Career and business"
               />
+              <span className="radio-span"></span>
               Career and business
             </label>
             <label>
-              <input type="radio" name="kindOfLesson" value="Lesson for kids" />
+              <input
+                className="radio-input"
+                type="radio"
+                name="kindOfLesson"
+                value="Lesson for kids"
+              />
+              <span className="radio-span"></span>
               Lesson for kids
             </label>
             <label>
-              <input type="radio" name="kindOfLesson" value="Living abroad" />
+              <input
+                className="radio-input"
+                type="radio"
+                name="kindOfLesson"
+                value="Living abroad"
+              />
+              <span className="radio-span"></span>
               Living abroad
             </label>
             <label>
               <input
+                className="radio-input"
                 type="radio"
                 name="kindOfLesson"
                 value=" Exams and coursework"
               />
+              <span className="radio-span"></span>
               Exams and coursework
             </label>
             <label>
               <input
+                className="radio-input"
                 type="radio"
                 name="kindOfLesson"
                 value="ulture, travel or hobby"
               />
+              <span className="radio-span"></span>
               Culture, travel or hobby
             </label>
           </div>
@@ -91,7 +113,7 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
                 onChange={formik.handleChange}
                 value={formik.values.name}
               />
-              <label htmlFor="name">First Name</label>
+              {!formik.values.name && <label htmlFor="name">First Name</label>}
             </div>
 
             <div className="input-field">
@@ -102,7 +124,9 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
                 onChange={formik.handleChange}
                 value={formik.values.email}
               />
-              <label htmlFor="email">Email Address</label>
+              {!formik.values.email && (
+                <label htmlFor="email">Email Address</label>
+              )}
             </div>
 
             <div className="input-field">
@@ -113,11 +137,13 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
                 onChange={formik.handleChange}
                 value={formik.values.phone}
               />
-              <label htmlFor="phone">phone</label>
+              {!formik.values.phone && <label htmlFor="phone">phone</label>}
             </div>
           </div>
 
-          <button type="submit">Submit</button>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
         </form>
       </StyledForm>
     </Modal>
