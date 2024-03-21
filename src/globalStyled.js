@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--primary-text-color);
     font-weight: 500;
     font-size: 16px;
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+    }
     button {
       border: none
     }
