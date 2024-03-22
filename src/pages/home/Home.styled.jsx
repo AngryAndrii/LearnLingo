@@ -13,7 +13,17 @@ const HomePage = styled.div`
     background-color: #f8f8f8;
     border-radius: 30px;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 98px 64px;
+  }
+  .header span {
+    font-style: italic;
+    background-color: #fbe9ba;
+  }
+  .header h1 {
+    max-width: 548px;
+  }
+  .header p {
+    font-size: 15px;
   }
   img {
     max-width: 100%;
@@ -54,6 +64,15 @@ const HomePage = styled.div`
     }
   }
   @media screen and (min-width: 768px) {
+    .header {
+      h1 {
+        font-size: 36px;
+      }
+    }
+    .header p {
+      font-size: 16px;
+      max-width: 471px;
+    }
     .advantages {
       .adv-content {
         flex-direction: row;
@@ -61,6 +80,22 @@ const HomePage = styled.div`
     }
   }
   @media screen and (min-width: 1440px) {
+    .hero-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+    .header {
+      h1 {
+        font-size: 48px;
+        text-align: left;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+    .header-img {
+      width: 568px;
+    }
     .advantages {
       .adv-content {
         flex-direction: row;
