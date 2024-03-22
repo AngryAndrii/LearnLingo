@@ -31,7 +31,7 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
         <div className="teacher flex row">
           <img
             src={img}
-            alt=""
+            alt="teacher"
             style={{ width: "44px", height: "44px", borderRadius: "100px" }}
           />
           <div>

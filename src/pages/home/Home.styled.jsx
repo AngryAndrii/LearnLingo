@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const HomePage = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -50,6 +51,20 @@ const HomePage = styled.div`
       font-size: 28px;
       font-weight: 500;
       white-space: nowrap;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .advantages {
+      .adv-content {
+        flex-direction: row;
+      }
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .advantages {
+      .adv-content {
+        flex-direction: row;
+      }
     }
   }
 `;
