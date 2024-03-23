@@ -26,22 +26,26 @@ const Home = () => {
         <section className="adv-content">
           <div className="adv-elem">
             <p>
-              <span>32,000 +</span>Experienced tutors
+              <span className="num">32,000 +</span>{" "}
+              <span className="adv-descr">Experienced tutors</span>
             </p>
           </div>
           <div className="adv-elem">
             <p>
-              <span>300,000 +</span>5-star tutor reviews
+              <span className="num">300,000 +</span>
+              <span className="adv-descr">5-star tutor reviews</span>
             </p>
           </div>
           <div className="adv-elem">
             <p>
-              <span>120 +</span>Subjects taught
+              <span className="num">120 +</span>
+              <span className="adv-descr">Subjects taught</span>
             </p>
           </div>
           <div className="adv-elem">
             <p>
-              <span>200 +</span>Tutor nationalities
+              <span className="num">200 +</span>
+              <span className="adv-descr">Tutor nationalities</span>
             </p>
           </div>
         </section>
