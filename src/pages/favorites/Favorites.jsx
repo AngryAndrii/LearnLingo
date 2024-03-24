@@ -11,6 +11,7 @@ const Favorites = () => {
   const dispatch = useDispatch();
   const teachers = useSelector((state) => state.getTeachers.teachers);
   const favorites = useSelector((state) => state.favorites.favorites);
+  const loading = useSelector((state) => state.favorites.loading);
 
   useEffect(() => {
     dispatch(getTeachers(countOfCard));

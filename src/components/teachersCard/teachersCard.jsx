@@ -1,18 +1,27 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uid } from "uid";
 import heart from "/images/heart.svg";
+import likedHeart from "/images/liked-heart.svg";
 import StyledCard from "./teachersCard.styled";
 import book from "/images/book-open.svg";
 import star from "/images/star.svg";
 import avatarGenerator from "./avatar";
 import BookForm from "../bookModal/BookModal";
-import { addToFavotites } from "../../redux/teachers/favoritesSlise";
+import {
+  addToFavotites,
+  removeFromFavorites,
+} from "../../redux/teachers/favoritesSlise";
+import toast, { Toaster } from "react-hot-toast";
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.favorites);
+  const isAuth = useSelector((state) => state.userAuth.isLoggedIn);
+
+  const notAuth = () => toast.error("Register or login to add to favorites!");
 
   function handleBookModalOpen() {
     setIsBookModalOpen(true);
@@ -38,8 +47,16 @@ const TeachersCard = ({ data }) => {
     id,
   } = data;
 
+  const isFavorite = favorites.includes(id);
+
   const handleFavButtonClick = () => {
-    dispatch(addToFavotites(id));
+    if (!isAuth) {
+      return notAuth();
+    }
+    if (isFavorite) {
+      return dispatch(removeFromFavorites(id));
+    }
+    return dispatch(addToFavotites(id));
   };
 
   return (
@@ -50,7 +67,11 @@ const TeachersCard = ({ data }) => {
           type="button"
           onClick={handleFavButtonClick}
         >
-          <img src={heart} alt="" width={26} height={26} />
+          {isFavorite && isAuth ? (
+            <img src={likedHeart} alt="liked heart" width={26} height={26} />
+          ) : (
+            <img src={heart} alt="heart" width={26} height={26} />
+          )}
         </button>
         <div className="avatar-container">
           <img className="avatar" src={avatar_url} width={96} alt="" />
@@ -164,6 +185,7 @@ const TeachersCard = ({ data }) => {
           img={avatar_url}
         />
       )}
+      <Toaster />
     </>
   );
 };
