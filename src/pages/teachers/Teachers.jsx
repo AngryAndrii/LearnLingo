@@ -7,7 +7,7 @@ import TeachersCard from "../../components/teachersCard/teachersCard";
 import StyledTeachers from "./Teachers.styled";
 
 const Teachers = () => {
-  const baseCountOfCards = 8;
+  const baseCountOfCards = 4;
   const loading = useSelector((state) => state.getTeachers.loading);
   const teachers = useSelector((state) => state.getTeachers.teachers);
   const dispatch = useDispatch();

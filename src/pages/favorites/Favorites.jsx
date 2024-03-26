@@ -6,7 +6,7 @@ import TeachersCard from "../../components/teachersCard/teachersCard";
 import { uid } from "uid";
 
 const Favorites = () => {
-  const baseCountOfCards = 8;
+  const baseCountOfCards = 4;
   const [countOfCard, setCountOfCard] = useState(baseCountOfCards);
   const dispatch = useDispatch();
   const teachers = useSelector((state) => state.getTeachers.teachers);
