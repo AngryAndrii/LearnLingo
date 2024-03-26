@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../config/firebase";
+import toast, { Toaster } from "react-hot-toast";
 
 export const registerUser = createAsyncThunk(
   "userAuth/registerUser",
@@ -44,6 +45,7 @@ export const loginUser = createAsyncThunk(
 
       return { uid, displayName, email };
     } catch (error) {
+      toast.error(`the user with such data was not found in the database`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
