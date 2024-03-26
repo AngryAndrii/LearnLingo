@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTeachers } from "../../redux/teachers/teachersOperations";
-import StyledTeachers from "../teachers/teachers.styled";
+import StyledTeachers from "../teachers/Teachers.styled";
 import TeachersCard from "../../components/teachersCard/teachersCard";
 import { uid } from "uid";
 
