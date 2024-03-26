@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../../Loader";
-import { auth } from "../../../../config/firebase";
 import { logoutUser } from "../../../../redux/auth/authOperations";
+import StyledButton from "./LogOutButton.styled";
 
 const LogoutButton = () => {
   const loading = useSelector((state) => state.loading);
@@ -12,13 +12,13 @@ const LogoutButton = () => {
   }
   return (
     <>
-      <button
+      <StyledButton
         onClick={() => {
           dispatch(logoutUser());
         }}
       >
         Logout
-      </button>
+      </StyledButton>
     </>
   );
 };
