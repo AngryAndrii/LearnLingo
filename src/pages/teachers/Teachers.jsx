@@ -4,7 +4,7 @@ import { getTeachers } from "../../redux/teachers/teachersOperations";
 import { createRef, useEffect, useLayoutEffect, useState } from "react";
 import { uid } from "uid";
 import TeachersCard from "../../components/teachersCard/teachersCard";
-import StyledTeachers from "./teachers.styled";
+import StyledTeachers from "./Teachers.styled";
 
 const Teachers = () => {
   const baseCountOfCards = 8;
