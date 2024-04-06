@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getTeachers } from "../../redux/teachers/teachersOperations";
-import StyledTeachers from "../teachers/Teachers.styled";
-import TeachersCard from "../../components/teachersCard/teachersCard";
-import { uid } from "uid";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTeachers } from '../../redux/teachers/teachersOperations';
+import StyledTeachers from '../teachers/Teachers.styled';
+import TeachersCard from '../../components/teachersCard/teachersCard';
+import { uid } from 'uid';
+import Loader from '../../Loader';
 
 const Favorites = () => {
   const baseCountOfCards = 4;
   const [countOfCard, setCountOfCard] = useState(baseCountOfCards);
   const dispatch = useDispatch();
-  const teachers = useSelector((state) => state.getTeachers.teachers);
-  const favorites = useSelector((state) => state.favorites.favorites);
-  const loading = useSelector((state) => state.favorites.loading);
+  const teachers = useSelector(state => state.getTeachers.teachers);
+  const favorites = useSelector(state => state.favorites.favorites);
+  const loading = useSelector(state => state.getTeachers.loading);
 
   useEffect(() => {
     dispatch(getTeachers(countOfCard));
@@ -21,10 +22,10 @@ const Favorites = () => {
     return <Loader />;
   }
 
-  const favoriteTeachers = teachers?.filter((el) => favorites.includes(el.id));
+  const favoriteTeachers = teachers?.filter(el => favorites.includes(el.id));
 
   const handleLoadMore = () => {
-    setCountOfCard((prevCount) => prevCount + baseCountOfCards);
+    setCountOfCard(prevCount => prevCount + baseCountOfCards);
   };
 
   return (
@@ -34,7 +35,7 @@ const Favorites = () => {
       ) : (
         <StyledTeachers>
           <ul>
-            {favoriteTeachers?.map((el) => {
+            {favoriteTeachers?.map(el => {
               return (
                 <li key={uid()}>
                   <TeachersCard data={el} />
