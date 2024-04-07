@@ -3,7 +3,12 @@ import RiseLoader from 'react-spinners/RiseLoader';
 const override = {
   display: 'block',
   margin: '0 auto',
-  borderColor: 'red',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  right: 'auto',
+  bottom: 'auto',
+  transform: 'translate(-50%, -50%)',
 };
 
 const Loader = () => {

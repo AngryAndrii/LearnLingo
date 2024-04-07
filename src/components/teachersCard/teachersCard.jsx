@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { uid } from "uid";
-import heart from "/images/heart.svg";
-import likedHeart from "/images/liked-heart.svg";
-import StyledCard from "./teachersCard.styled";
-import book from "/images/book-open.svg";
-import star from "/images/star.svg";
-import avatarGenerator from "./avatar";
-import BookForm from "../bookModal/BookModal";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { uid } from 'uid';
+import heart from '/images/heart.svg';
+import likedHeart from '/images/liked-heart.svg';
+import StyledCard from './teachersCard.styled';
+import book from '/images/book-open.svg';
+import star from '/images/star.svg';
+import avatarGenerator from './avatar';
+import BookForm from '../bookModal/BookModal';
 import {
   addToFavotites,
   removeFromFavorites,
-} from "../../redux/teachers/favoritesSlise";
-import toast, { Toaster } from "react-hot-toast";
+} from '../../redux/teachers/favoritesSlise';
+import toast, { Toaster } from 'react-hot-toast';
 
 const TeachersCard = ({ data }) => {
   const [loadMore, setLoadMore] = useState(false);
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorites.favorites);
-  const isAuth = useSelector((state) => state.userAuth.isLoggedIn);
+  const favorites = useSelector(state => state.favorites.favorites);
+  const isAuth = useSelector(state => state.userAuth.isLoggedIn);
 
-  const notAuth = () => toast.error("Register or login to add to favorites!");
+  const notAuth = () => toast.error('Register or login to add to favorites!');
 
   function handleBookModalOpen() {
     setIsBookModalOpen(true);
@@ -98,7 +98,7 @@ const TeachersCard = ({ data }) => {
         <ul>
           <li>
             <span className="grey-span">Speaks:</span>
-            {languages.map((el) => {
+            {languages.map(el => {
               return ` ${el}, `;
             })}
           </li>
@@ -112,10 +112,10 @@ const TeachersCard = ({ data }) => {
         {!loadMore ? (
           <button
             style={{
-              textDecoration: "underline",
-              background: "rgba(0, 0, 0, 0)",
-              fontWeight: "500",
-              marginTop: "16px",
+              textDecoration: 'underline',
+              background: 'rgba(0, 0, 0, 0)',
+              fontWeight: '500',
+              marginTop: '16px',
             }}
             type="button"
             onClick={() => {
@@ -129,27 +129,27 @@ const TeachersCard = ({ data }) => {
             <p className="exp">{experience}</p>
             {reviews.map(({ reviewer_name, reviewer_rating, comment }) => {
               return (
-                <div style={{ marginBottom: "10px" }} key={uid()}>
+                <div style={{ marginBottom: '10px' }} key={uid()}>
                   <div
                     className="flex row"
                     style={{
-                      marginBottom: "16px",
-                      columnGap: "10px",
-                      alignItems: "center",
+                      marginBottom: '16px',
+                      columnGap: '10px',
+                      alignItems: 'center',
                     }}
                   >
                     <img
-                      style={{ width: "44px", borderRadius: "50%" }}
+                      style={{ width: '44px', borderRadius: '50%' }}
                       src={avatarGenerator()}
                       alt="user avatar"
                     />
-                    <div className="flex column" style={{ flexWrap: "wrap" }}>
+                    <div className="flex column" style={{ flexWrap: 'wrap' }}>
                       {reviewer_name}
                       <div>
                         <img
                           src={star}
                           alt="rating icon"
-                          style={{ marginRight: "5px" }}
+                          style={{ marginRight: '5px' }}
                         />
                         {reviewer_rating},0
                       </div>
@@ -162,7 +162,7 @@ const TeachersCard = ({ data }) => {
           </div>
         )}
         <ul className="category-list flex row">
-          {levels.map((el) => {
+          {levels.map(el => {
             return <li key={uid()}>{el}</li>;
           })}
         </ul>

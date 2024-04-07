@@ -1,19 +1,19 @@
-import React from "react";
-import { useFormik } from "formik";
-import { style } from "../authModal/styles";
-import Modal from "react-modal";
-import StyledForm from "./BookModal.styled";
-import { RxCross2 } from "react-icons/rx";
+import React from 'react';
+import { useFormik } from 'formik';
+import { style } from '../authModal/styles';
+import Modal from 'react-modal';
+import StyledForm from './BookModal.styled';
+import { RxCross2 } from 'react-icons/rx';
 
 const BookForm = ({ close, isOpen, name, surname, img }) => {
   const formik = useFormik({
     initialValues: {
-      kindOfLesson: "",
-      name: "",
-      email: "",
-      phone: "",
+      kindOfLesson: '',
+      name: '',
+      email: '',
+      phone: '',
     },
-    onSubmit: (values) => {
+    onSubmit: values => {
       console.log(values);
     },
   });
@@ -21,7 +21,7 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
     <Modal style={style} onRequestClose={close} isOpen={isOpen}>
       <StyledForm>
         <button onClick={close} className="close-button">
-          <RxCross2 style={{ width: "100%", height: "100%" }} />
+          <RxCross2 style={{ width: '100%', height: '100%' }} />
         </button>
         <h3>Book trial lesson</h3>
         <p className="descr">
@@ -32,7 +32,7 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
           <img
             src={img}
             alt="teacher"
-            style={{ width: "44px", height: "44px", borderRadius: "100px" }}
+            style={{ width: '44px', height: '44px', borderRadius: '100px' }}
           />
           <div>
             <p className="teacher-descr">Your teacher</p>

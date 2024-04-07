@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledForm = styled.div`
   outline: 1px solid tomato;
   padding: 20px;
   position: relative;
   padding: 20px;
+  overflow: scroll;
   .close-button {
     position: absolute;
     top: 0px;
@@ -88,10 +89,10 @@ const StyledForm = styled.div`
     height: 20px;
     position: absolute;
     margin-left: -1.9em;
-    background-image: url("../../../public/images/void-check.svg");
+    background-image: url('images/void-check.svg');
   }
   .radio-input:checked + .radio-span {
-    background-image: url("../../../public/images/fill-check.svg");
+    background-image: url('images/fill-check.svg');
   }
 `;
 
