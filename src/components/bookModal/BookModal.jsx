@@ -14,11 +14,32 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
       phone: '',
     },
     onSubmit: values => {
-      console.log(values);
+      // console.log(values);
     },
   });
   return (
-    <Modal style={style} onRequestClose={close} isOpen={isOpen}>
+    <Modal
+      style={{
+        content: {
+          position: 'relative',
+          top: '55%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)',
+          width: '80vw',
+          height: '100vh',
+          paddingTop: 44,
+          paddingBottom: 44,
+          borderRadius: 30,
+          maxWidth: 570,
+          overflow: 'scroll',
+        },
+      }}
+      onRequestClose={close}
+      isOpen={isOpen}
+    >
       <StyledForm>
         <button onClick={close} className="close-button">
           <RxCross2 style={{ width: '100%', height: '100%' }} />
