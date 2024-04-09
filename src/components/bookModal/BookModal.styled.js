@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.div`
-  outline: 1px solid tomato;
   padding: 20px;
   position: relative;
   padding: 20px;
-  overflow: scroll;
+  /* overflow: scroll; */
   .close-button {
     position: absolute;
     top: 0px;

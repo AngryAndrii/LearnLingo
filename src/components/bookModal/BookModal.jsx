@@ -1,9 +1,23 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import { useFormik, ErrorMessage } from 'formik';
 import { style } from '../authModal/styles';
 import Modal from 'react-modal';
 import StyledForm from './BookModal.styled';
 import { RxCross2 } from 'react-icons/rx';
+import * as Yup from 'yup';
+
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+const bookShema = Yup.object().shape({
+  kindOfLesson: Yup.string().required('A radio option is required'),
+  name: Yup.string()
+    .min(2, 'Too Short!')
+    .max(70, 'Too Long!')
+    .required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
+});
 
 const BookForm = ({ close, isOpen, name, surname, img }) => {
   const formik = useFormik({
@@ -14,11 +28,33 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
       phone: '',
     },
     onSubmit: values => {
-      console.log(values);
+      // console.log(values);
     },
+    validationSchema: bookShema,
   });
   return (
-    <Modal style={style} onRequestClose={close} isOpen={isOpen}>
+    <Modal
+      style={{
+        content: {
+          position: 'relative',
+          top: '55%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)',
+          width: '80vw',
+          height: '100vh',
+          paddingTop: 44,
+          paddingBottom: 44,
+          borderRadius: 30,
+          maxWidth: 570,
+          overflow: 'scroll',
+        },
+      }}
+      onRequestClose={close}
+      isOpen={isOpen}
+    >
       <StyledForm>
         <button onClick={close} className="close-button">
           <RxCross2 style={{ width: '100%', height: '100%' }} />
@@ -103,6 +139,9 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
               Culture, travel or hobby
             </label>
           </div>
+          {formik.touched.kindOfLesson && formik.errors.kindOfLesson ? (
+            <div>{formik.errors.kindOfLesson}</div>
+          ) : null}
 
           <div className="text-inputs flex column">
             <div className="input-field">
@@ -115,6 +154,9 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
               />
               {!formik.values.name && <label htmlFor="name">First Name</label>}
             </div>
+            {formik.touched.name && formik.errors.name ? (
+              <div>{formik.errors.name}</div>
+            ) : null}
 
             <div className="input-field">
               <input
@@ -128,6 +170,9 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
                 <label htmlFor="email">Email Address</label>
               )}
             </div>
+            {formik.touched.email && formik.errors.email ? (
+              <div>{formik.errors.email}</div>
+            ) : null}
 
             <div className="input-field">
               <input
@@ -140,6 +185,9 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
               {!formik.values.phone && <label htmlFor="phone">phone</label>}
             </div>
           </div>
+          {formik.touched.phone && formik.errors.phone ? (
+            <div>{formik.errors.phone}</div>
+          ) : null}
 
           <button className="submit-button" type="submit">
             Submit
