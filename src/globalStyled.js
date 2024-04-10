@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import "modern-normalize";
-import "./styles/root.css";
+import { createGlobalStyle } from 'styled-components';
+import 'modern-normalize';
+import './styles/root.css';
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -26,6 +26,9 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       border: 1px solid var(--accent-color);
       border-radius: 12px;
+    }
+    .form-field .error{
+    background-color: red;
     }
     .eye-icon {
       top: 17px;

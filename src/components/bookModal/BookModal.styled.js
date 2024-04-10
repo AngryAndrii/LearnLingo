@@ -4,7 +4,6 @@ const StyledForm = styled.div`
   padding: 20px;
   position: relative;
   padding: 20px;
-  /* overflow: scroll; */
   .close-button {
     position: absolute;
     top: 0px;
@@ -39,12 +38,12 @@ const StyledForm = styled.div`
     margin-bottom: 20px;
   }
   .group {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     row-gap: 16px;
   }
   .text-inputs {
     row-gap: 8px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
   .input-field {
     position: relative;
@@ -56,7 +55,7 @@ const StyledForm = styled.div`
     top: 16px;
     left: 18px;
   }
-  .input-field input {
+  .input-field .input {
     width: 100%;
     height: 54px;
     padding: 16px 18px;
@@ -92,6 +91,14 @@ const StyledForm = styled.div`
   }
   .radio-input:checked + .radio-span {
     background-image: url('images/fill-check.svg');
+  }
+  .error {
+    display: block;
+    color: red;
+    margin-bottom: 5px;
+  }
+  .input-field .invalid {
+    border: 1px solid red;
   }
 `;
 

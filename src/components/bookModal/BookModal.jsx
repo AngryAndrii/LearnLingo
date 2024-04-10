@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik, ErrorMessage } from 'formik';
-import { style } from '../authModal/styles';
+import { style } from './styles';
 import Modal from 'react-modal';
 import StyledForm from './BookModal.styled';
 import { RxCross2 } from 'react-icons/rx';
@@ -13,10 +13,12 @@ const bookShema = Yup.object().shape({
   kindOfLesson: Yup.string().required('A radio option is required'),
   name: Yup.string()
     .min(2, 'Too Short!')
-    .max(70, 'Too Long!')
+    .max(50, 'Too Long!')
     .required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
-  phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
+  phone: Yup.string()
+    .matches(phoneRegExp, 'Phone number is not valid')
+    .required('Required'),
 });
 
 const BookForm = ({ close, isOpen, name, surname, img }) => {
@@ -28,33 +30,12 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
       phone: '',
     },
     onSubmit: values => {
-      // console.log(values);
+      console.log(values);
     },
     validationSchema: bookShema,
   });
   return (
-    <Modal
-      style={{
-        content: {
-          position: 'relative',
-          top: '55%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-          width: '80vw',
-          height: '100vh',
-          paddingTop: 44,
-          paddingBottom: 44,
-          borderRadius: 30,
-          maxWidth: 570,
-          overflow: 'scroll',
-        },
-      }}
-      onRequestClose={close}
-      isOpen={isOpen}
-    >
+    <Modal style={style} onRequestClose={close} isOpen={isOpen}>
       <StyledForm>
         <button onClick={close} className="close-button">
           <RxCross2 style={{ width: '100%', height: '100%' }} />
@@ -139,13 +120,14 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
               Culture, travel or hobby
             </label>
           </div>
-          {formik.touched.kindOfLesson && formik.errors.kindOfLesson ? (
-            <div>{formik.errors.kindOfLesson}</div>
-          ) : null}
+          {formik.errors.kindOfLesson && (
+            <span className="error">{formik.errors.kindOfLesson}</span>
+          )}
 
           <div className="text-inputs flex column">
             <div className="input-field">
               <input
+                className="input"
                 id="name"
                 name="name"
                 type="text"
@@ -154,12 +136,16 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
               />
               {!formik.values.name && <label htmlFor="name">First Name</label>}
             </div>
-            {formik.touched.name && formik.errors.name ? (
+            {/* {formik.touched.name && formik.errors.name ? (
               <div>{formik.errors.name}</div>
-            ) : null}
+            ) : null} */}
+            {formik.errors.name && (
+              <span className="error">{formik.errors.name}</span>
+            )}
 
             <div className="input-field">
               <input
+                className="input"
                 id="email"
                 name="email"
                 type="email"
@@ -170,12 +156,13 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
                 <label htmlFor="email">Email Address</label>
               )}
             </div>
-            {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
-            ) : null}
+            {formik.errors.email && (
+              <span className="error">{formik.errors.email}</span>
+            )}
 
             <div className="input-field">
               <input
+                className={`input ${formik.errors.phone ? 'invalid' : ''}`}
                 id="phone"
                 name="phone"
                 type="phone"
@@ -185,9 +172,9 @@ const BookForm = ({ close, isOpen, name, surname, img }) => {
               {!formik.values.phone && <label htmlFor="phone">phone</label>}
             </div>
           </div>
-          {formik.touched.phone && formik.errors.phone ? (
-            <div>{formik.errors.phone}</div>
-          ) : null}
+          {formik.errors.phone && (
+            <span className="error">{formik.errors.phone}</span>
+          )}
 
           <button className="submit-button" type="submit">
             Submit
