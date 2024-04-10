@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const LoginModalStyled = styled.div`
   .close-button {
@@ -26,6 +26,9 @@ const LoginModalStyled = styled.div`
     flex-direction: column;
     width: 100%;
     row-gap: 18px;
+  }
+  .form-field > .error {
+    border: 1px solid red;
   }
 `;
 
